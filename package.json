@@ -1,0 +1,24 @@
+{
+  "name": "query-editor",
+  "version": "0.0.1",
+  "description": " Query editor is a graphical user interface for editing expressions to build a SQL query ",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rintoj/query-editor.git"
+  },
+  "keywords": [
+    "Query",
+    "SQL",
+    "Editor"
+  ],
+  "author": "Rinto Jose",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rintoj/query-editor/issues"
+  },
+  "homepage": "https://github.com/rintoj/query-editor#readme"
+}
