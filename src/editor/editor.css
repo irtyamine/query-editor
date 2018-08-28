@@ -1,0 +1,8 @@
+.qe-editor {
+  font-family: 'Fira Code', Menlo, Monaco, 'Courier New', monospace, 'Apple Color Emoji';
+  padding: 6px 8px;
+  font-size: 14px;
+}
+.qe-editor * {
+  line-height: 22px;
+}
