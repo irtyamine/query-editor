@@ -3,8 +3,8 @@ import './context-menu.css'
 
 import { withEditorContext } from '../editor-context/editor-context'
 import { EditorConfig } from '../state/editor-config'
-import { Menu } from '../state/menu'
-import { Theme } from '../state/theme'
+import { Menu, MenuItem } from '../state/menu'
+import { ContextMenuItem } from './context-menu-item'
 
 interface Props {
   visible?: boolean
@@ -15,18 +15,15 @@ interface State { }
 
 export class ContextMenu extends React.Component<Props, State> {
 
+  renderMenuItem = (item: MenuItem, index: number) => {
+    return <ContextMenuItem key={index} menuItem={item} />
+  }
+
   render() {
-    const { visible, menu, config } = this.props
-    const { theme } = (config || {}) as EditorConfig
-    const { menuColor, backgroundColor, borderColor } = (theme || {}) as Theme
-    return <div
-      className={`qe-context-menu ${visible ? `open` : ''}`}
-      style={{
-        backgroundColor: visible ? menuColor || backgroundColor || 'white' : 'transparent',
-        borderColor: visible ? borderColor || 'lightgray' : 'transparent',
-      }}
-    >
-      {menu && menu.items && menu.items.length || 'none'}
+    const { visible, config } = this.props
+    const { menu } = (config || {}) as EditorConfig
+    return <div className={`qe-context-menu ${visible ? `open` : ''}`}>
+      {(menu && menu.items || []).map(this.renderMenuItem)}
     </div>
   }
 }

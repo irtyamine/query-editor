@@ -1,0 +1,22 @@
+.qe-context-menu-item {
+  cursor: pointer;
+  position: relative;
+}
+
+.qe-context-menu-item-background {
+  position: absolute;
+  background-color: rgba(0,0,0,0.05);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.qe-context-menu-item-text {
+  position: relative;
+  z-index: 1;
+  padding: 2px 8px;
+}
+
+.qe-context-menu-item:hover .qe-context-menu-item-background {
+  display: block;
+}

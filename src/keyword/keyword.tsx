@@ -1,5 +1,6 @@
 
 import * as React from 'react'
+import './keyword.css'
 
 interface Props {
   children?: string

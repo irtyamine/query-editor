@@ -1,9 +1,9 @@
 import * as React from 'react'
+import './input.css'
+
 import ContextMenu from '../context-menu/context-menu'
 import { withEditorContext } from '../editor-context/editor-context'
 import { EditorConfig } from '../state/editor-config'
-import { Menu } from '../state/menu'
-import './input.css'
 
 export interface Props {
   value?: string
@@ -37,7 +37,6 @@ class Input extends React.Component<Props, State> {
   onBlur = () => {
     this.setState({ showMenu: false })
   }
-  // onFocusCapture = () => console.log('onFocusCapture')
 
   selectAll = () => {
     const range = document.createRange()
@@ -48,7 +47,7 @@ class Input extends React.Component<Props, State> {
   }
 
   render() {
-    const { value, placeholder, editable, config } = this.props
+    const { value, placeholder, editable } = this.props
     const { showMenu } = this.state
     return <span className='qe-input'>
       <span
@@ -59,9 +58,10 @@ class Input extends React.Component<Props, State> {
         onKeyUp={this.onContentChange}
         onFocus={this.onFocus}
         onBlur={this.onBlur}
-      // onFocusCapture={this.onFocusCapture}
-      />
-      <ContextMenu menu={config && config.menu} visible={showMenu} />
+      >
+        {value}
+      </span>
+      <ContextMenu visible={showMenu} />
     </span>
   }
 

@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { EditorConfig } from '../state/editor-config'
 import './query-editor.css'
+
+import { EditorConfig } from '../state/editor-config'
 
 import { EditorContextProvider } from '../editor-context/editor-context'
 import Editor from '../editor/editor'
