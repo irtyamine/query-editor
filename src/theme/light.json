@@ -1,4 +1,6 @@
 {
   "backgroundColor": "#edf2f6",
-  "textColor": "#424242"
+  "textColor": "#424242",
+  "menuColor": "#edf2f6",
+  "borderColor": "rgba(0,0,0,0.05)"
 }

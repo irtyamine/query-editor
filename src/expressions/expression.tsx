@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Input } from '../input/input'
-import { Option } from '../state/option'
+import { Option } from '../state/menu'
 
 export interface Props {
   options?: Option[]

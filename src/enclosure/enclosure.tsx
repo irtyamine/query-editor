@@ -14,7 +14,7 @@ const tags = {
   doubleQuote: { start: `"`, end: `"` },
 }
 
-export class Enclosure extends React.Component<Props, State> {
+export default class Enclosure extends React.Component<Props, State> {
 
   render() {
     const { children } = this.props

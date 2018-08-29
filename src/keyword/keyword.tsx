@@ -6,7 +6,7 @@ interface Props {
 }
 interface State { }
 
-export class Keyword extends React.Component<Props, State> {
+export default class Keyword extends React.Component<Props, State> {
 
   render() {
     const { children } = this.props

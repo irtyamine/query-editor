@@ -12,8 +12,13 @@ export const EditorContext = React.createContext(defaultConfig)
 export class EditorContextProvider extends React.Component<EditorConfig, EditorConfig> {
   state: EditorConfig = defaultConfig
 
-  componentWillReceiveProps(props: EditorConfig) {
+  componentDidMount() {
     const theme: Theme = { ...defaultTheme as Theme, ...this.props.theme }
+    this.setState({ ...(this.props as any || {}), theme })
+  }
+
+  componentWillReceiveProps(props: EditorConfig) {
+    const theme: Theme = { ...defaultTheme as Theme, ...props.theme }
     this.setState({ ...props, theme })
   }
 

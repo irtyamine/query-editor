@@ -1,10 +1,13 @@
-.input-node {
+.qe-input {
+  position: relative;
+}
+.qe-input-node {
   width: auto;
   outline: none;
   border: none;
   display: inline-block;
 }
-.input-node:empty:before {
+.qe-input-node:empty:before {
   content: attr(placeholder);
   display: block;
   opacity: 0.4;
