@@ -22,8 +22,10 @@ export class ContextMenu extends React.Component<Props, State> {
   render() {
     const { visible, config } = this.props
     const { menu } = (config || {}) as EditorConfig
-    return <div className={`qe-context-menu ${visible ? `open` : ''}`}>
-      {(menu && menu.items || []).map(this.renderMenuItem)}
+    return <div className={`qe-context-menu line-number cursor-line-no-selection ${visible ? `open` : ''}`}>
+      <div className='gutter'>
+        {(menu && menu.items || []).map(this.renderMenuItem)}
+      </div>
     </div>
   }
 }

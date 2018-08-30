@@ -1,11 +1,15 @@
 import * as React from 'react'
-import './editor.css'
+import '../theme/azure/index.less'
+// import '../theme/github/index.less'
+import './editor.less'
 
 import { withEditorContext } from '../editor-context/editor-context'
 import Enclosure from '../enclosure/enclosure'
 import Input from '../input/input'
 import Keyword from '../keyword/keyword'
 import { EditorConfig } from '../state/editor-config'
+import String from '../string/string'
+import Variable from '../variable/variable'
 
 export interface Props {
   config: EditorConfig
@@ -17,13 +21,15 @@ export interface State {
 class Editor extends React.PureComponent<Props, State> {
 
   render() {
-    return <div className='qe-editor'>
+    return <div className='qe-editor editor editor-colors'>
       <Enclosure>
-        <Input placeholder='Variable' />
+        <Variable>
+          <Input placeholder='Variable' />
+        </Variable>
         <Keyword>=</Keyword>
-        <Enclosure type='doubleQuote'>
+        <String>
           <Input placeholder='Value' />
-        </Enclosure>
+        </String>
       </Enclosure>
     </div>
   }

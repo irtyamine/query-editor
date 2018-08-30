@@ -11,7 +11,7 @@ export default class Keyword extends React.Component<Props, State> {
 
   render() {
     const { children } = this.props
-    return <span className='qe-editor'>
+    return <span className='qe-editor keyword'>
       {children}
     </span>
   }

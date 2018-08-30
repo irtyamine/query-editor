@@ -20,9 +20,9 @@ export default class Enclosure extends React.Component<Props, State> {
     const type = this.props.type || 'bracket'
     const tag = tags[type || 'bracket']
     return <span className='qe-enclosure'>
-      <span>{tag.start}</span>
+      <span className='delimiter'>{tag.start}</span>
       <span>{children}</span>
-      <span>{tag.end}</span>
+      <span className='delimiter'>{tag.end}</span>
     </span>
   }
 }
