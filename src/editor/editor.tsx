@@ -1,6 +1,6 @@
 import * as React from 'react'
-import '../theme/azure/index.less'
-// import '../theme/github/index.less'
+// import '../theme/azure/index.less'
+import '../theme/github/index.less'
 import './editor.less'
 
 import { withEditorContext } from '../editor-context/editor-context'
@@ -27,9 +27,7 @@ class Editor extends React.PureComponent<Props, State> {
           <Input placeholder='Variable' />
         </Variable>
         <Keyword>=</Keyword>
-        <String>
-          <Input placeholder='Value' />
-        </String>
+        <String placeholder='Value' />
       </Enclosure>
     </div>
   }

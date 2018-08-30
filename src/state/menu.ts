@@ -1,5 +1,5 @@
 
-export type MenuType = 'Variable' | 'Field'
+export type MenuType = 'variable' | 'field' | 'string' | 'number' | 'boolean'
 
 export interface Menu {
   searchable?: boolean

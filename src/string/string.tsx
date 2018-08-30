@@ -1,6 +1,8 @@
 import * as React from 'react'
+import Input from '../input/input'
 
 interface Props {
+  placeholder?: any
   children?: any
 }
 interface State { }
@@ -8,10 +10,10 @@ interface State { }
 export default class String extends React.Component<Props, State> {
 
   render() {
-    const { children } = this.props
+    const { placeholder } = this.props
     return <span className='qe-string string'>
       <span>"</span>
-      <span>{children}</span>
+      <Input placeholder={placeholder} />
       <span>"</span>
     </span>
   }
