@@ -24,7 +24,7 @@ class Editor extends React.PureComponent<Props, State> {
     return <div className='qe-editor editor editor-colors'>
       <Enclosure>
         <Variable>
-          <Input placeholder='Variable' />
+          <Input placeholder='Variable' onChange={console.log} />
         </Variable>
         <Keyword>=</Keyword>
         <String placeholder='Value' />

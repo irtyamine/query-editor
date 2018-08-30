@@ -13,7 +13,11 @@ export default class String extends React.Component<Props, State> {
     const { placeholder } = this.props
     return <span className='qe-string string'>
       <span>"</span>
-      <Input placeholder={placeholder} />
+      <Input
+        placeholder={placeholder}
+        includeTypes={['string']}
+        excludeGroups={['variable']}
+      />
       <span>"</span>
     </span>
   }

@@ -1,0 +1,1 @@
+export type DataType = 'variable' | 'field' | 'string' | 'number' | 'boolean'

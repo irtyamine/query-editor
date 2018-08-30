@@ -1,5 +1,4 @@
-
-export type MenuType = 'variable' | 'field' | 'string' | 'number' | 'boolean'
+import { DataType } from './data-type'
 
 export interface Menu {
   searchable?: boolean
@@ -9,6 +8,12 @@ export interface Menu {
 export interface MenuItem {
   text?: string
   value?: string
-  type?: MenuType
+  type?: DataType
   group?: string
+  index?: number
+}
+
+export interface GroupedItem {
+  group?: string
+  items?: MenuItem[]
 }

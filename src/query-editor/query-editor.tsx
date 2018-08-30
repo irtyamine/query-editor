@@ -14,12 +14,12 @@ export class QueryEditor extends React.PureComponent<EditorConfig, void> {
     const menu: Menu = {
       searchable: true,
       items: [
-        { text: 'Arithmetic', type: 'number', group: 'Expression' },
-        { text: 'Binary', type: 'boolean', group: 'Expression' },
-        { text: 'country', type: 'string', group: 'Field' },
-        { text: 'employeeId', type: 'number', group: 'Field' },
-        { text: 'userId', type: 'number', group: 'Variable' },
-        { text: 'userName', type: 'string', group: 'Variable' },
+        { text: 'Arithmetic', type: 'number', group: 'expression' },
+        { text: 'Binary', type: 'boolean', group: 'expression' },
+        { text: 'country', type: 'string', group: 'variable' },
+        { text: 'employeeId', type: 'number', group: 'variable' },
+        { text: 'userId', type: 'number', group: 'variable' },
+        { text: 'userName', type: 'string', group: 'variable' },
       ],
     }
 
