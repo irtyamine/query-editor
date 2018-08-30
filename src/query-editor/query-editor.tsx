@@ -20,6 +20,14 @@ export class QueryEditor extends React.PureComponent<EditorConfig, void> {
         { text: 'employeeId', type: 'number', group: 'variable' },
         { text: 'userId', type: 'number', group: 'variable' },
         { text: 'userName', type: 'string', group: 'variable' },
+        { text: '=', type: 'operator', group: 'binary operator' },
+        { text: '!=', type: 'operator', group: 'binary operator' },
+        { text: '>=', type: 'operator', group: 'binary operator' },
+        { text: '<=', type: 'operator', group: 'binary operator' },
+        { text: '>', type: 'operator', group: 'binary operator' },
+        { text: '<', type: 'operator', group: 'binary operator' },
+        { text: 'IS NULL', type: 'operator', group: 'binary operator' },
+        { text: 'IS NOT NULL', type: 'operator', group: 'binary operator' },
       ],
     }
 

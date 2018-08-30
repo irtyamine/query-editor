@@ -1,1 +1,1 @@
-export type DataType = 'variable' | 'field' | 'string' | 'number' | 'boolean'
+export type DataType = 'operator' | 'keyword' | 'variable' | 'field' | 'string' | 'number' | 'boolean'

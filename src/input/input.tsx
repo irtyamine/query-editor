@@ -18,6 +18,7 @@ export interface Props {
   config?: EditorConfig
   includeTypes?: DataType[] | Function
   excludeTypes?: DataType[] | Function
+  includeGroups?: string[] | Function
   excludeGroups?: string[] | Function
   onChange?: Function
 }
@@ -126,7 +127,7 @@ class Input extends React.Component<Props, State> {
   }
 
   render() {
-    const { config, placeholder, includeTypes, excludeTypes, excludeGroups, editable } = this.props
+    const { config, placeholder, includeTypes, excludeTypes, includeGroups, excludeGroups, editable } = this.props
     const { value, showMenu } = this.state
     return <span className='qe-input'>
       <span
@@ -150,9 +151,11 @@ class Input extends React.Component<Props, State> {
         ref={this.onContextMenuRef}
         config={config}
         visible={showMenu}
+        searchable={editable !== false}
         searchString={value}
         includeTypes={includeTypes}
         excludeTypes={excludeTypes}
+        includeGroups={includeGroups}
         excludeGroups={excludeGroups}
         onSelect={this.onSelectMenuItem}
       />

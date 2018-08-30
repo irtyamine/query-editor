@@ -4,6 +4,7 @@ import './context-menu-item.css'
 import { MenuItem } from '../state/menu'
 
 interface Props {
+  searchable?: boolean
   selected?: boolean
   menuItem?: MenuItem
   searchString?: string
@@ -34,14 +35,15 @@ export class ContextMenuItem extends React.Component<Props, State> {
   }
 
   renderDecoratedText = (text?: string) => {
-    const { searchString } = this.props
+    const { searchString, searchable } = this.props
+    if (searchable === false) { return text }
     if (text == undefined || searchString == undefined || searchString === '') { return text }
     try {
       const [content, before, highlight, after] = new RegExp(`(.*)(${searchString})(.*)`, 'i').exec(text) || [] as any
       return <span className='selection'>
-        <span>{before}</span>
+        <span className='variable'>{before}</span>
         <span className='region'>{highlight}</span>
-        <span>{after}</span>
+        <span className='variable'>{after}</span>
       </span>
       return text
     } catch (e) {

@@ -26,7 +26,14 @@ class Editor extends React.PureComponent<Props, State> {
         <Variable>
           <Input placeholder='Variable' onChange={console.log} />
         </Variable>
-        <Keyword>=</Keyword>
+        <Input
+          editable={false}
+          placeholder='Variable'
+          value='='
+          onChange={console.log}
+          includeTypes={['operator']}
+          includeGroups={['binary operator']}
+        />
         <String placeholder='Value' />
       </Enclosure>
     </div>

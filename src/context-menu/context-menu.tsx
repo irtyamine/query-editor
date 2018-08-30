@@ -7,11 +7,13 @@ import './context-menu.css'
 
 interface Props {
   visible?: boolean
+  searchable?: boolean
   menu?: Menu
   config?: EditorConfig
   searchString?: string
   includeTypes?: DataType[] | Function
   excludeTypes?: DataType[] | Function
+  includeGroups?: string[] | Function
   excludeGroups?: string[] | Function
   onSelect?: Function
 }
@@ -68,6 +70,13 @@ export class ContextMenu extends React.Component<Props, State> {
     return excludeTypes.indexOf(menu.type) < 0
   }
 
+  filterByAllowedGroups = (menu: MenuItem) => {
+    const { includeGroups } = this.props
+    if (includeGroups == undefined || menu.group == undefined) { return true }
+    if (typeof includeGroups === 'function') { return includeGroups(menu) }
+    return includeGroups.indexOf(menu.group) >= 0
+  }
+
   filterByDisallowedGroups = (menu: MenuItem) => {
     const { excludeGroups } = this.props
     if (excludeGroups == undefined || menu.group == undefined) { return true }
@@ -77,7 +86,8 @@ export class ContextMenu extends React.Component<Props, State> {
 
   filterBySearchString = (menu: MenuItem) => {
     try {
-      const { searchString } = this.props
+      const { searchString, searchable } = this.props
+      if (searchable === false) { return true }
       if (searchString == undefined || menu.text == undefined || menu.text === '') { return true }
       return new RegExp(searchString, 'ig').test(menu.text)
     } catch (e) {
@@ -99,9 +109,10 @@ export class ContextMenu extends React.Component<Props, State> {
     const { menu } = (config || {}) as EditorConfig
 
     const filteredItems: MenuItem[] = (menu && menu.items || [])
+      .filter(this.filterByAllowedTypes)
+      .filter(this.filterByAllowedGroups)
       .filter(this.filterByDisallowedTypes)
       .filter(this.filterByDisallowedGroups)
-      .filter(this.filterByAllowedTypes)
       .filter(this.filterBySearchString)
 
     const groupedItems: GroupedItem[] = filteredItems.reduce(this.reduceByGroup, [])
@@ -122,10 +133,11 @@ export class ContextMenu extends React.Component<Props, State> {
   }
 
   renderMenuItem = (item: MenuItem, index: number) => {
-    const { searchString } = this.props
+    const { searchString, searchable } = this.props
     const { selectedIndex } = this.state
     return <ContextMenuItem
       key={index}
+      searchable={searchable}
       selected={item.index === selectedIndex}
       searchString={searchString}
       menuItem={item}

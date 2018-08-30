@@ -34,4 +34,5 @@
   padding-bottom: 1px;
   font-size: 10px;
   text-transform: uppercase;
+  white-space: nowrap;
 }
