@@ -2,10 +2,8 @@ import * as React from 'react'
 import './input.css'
 
 import { ContextMenu } from '../context-menu/context-menu'
-import { withEditorContext } from '../editor-context/editor-context'
 import { DataType } from '../state/data-type'
-import { EditorConfig } from '../state/editor-config'
-import { MenuItem } from '../state/menu'
+import { Menu, MenuItem } from '../state/menu'
 
 const KEY_UP = 38
 const KEY_DOWN = 40
@@ -15,7 +13,7 @@ export interface Props {
   value?: string
   editable?: boolean
   placeholder?: string
-  config?: EditorConfig
+  menu?: Menu
   includeTypes?: DataType[] | Function
   excludeTypes?: DataType[] | Function
   includeGroups?: string[] | Function
@@ -27,7 +25,7 @@ export interface State {
   value?: string
 }
 
-class Input extends React.Component<Props, State> {
+export class Input extends React.Component<Props, State> {
 
   ref?: HTMLSpanElement | null
   contextMenu?: ContextMenu | null
@@ -127,7 +125,7 @@ class Input extends React.Component<Props, State> {
   }
 
   render() {
-    const { config, placeholder, includeTypes, excludeTypes, includeGroups, excludeGroups, editable } = this.props
+    const { menu, placeholder, includeTypes, excludeTypes, includeGroups, excludeGroups, editable } = this.props
     const { value, showMenu } = this.state
     return <span className='qe-input'>
       <span
@@ -149,7 +147,7 @@ class Input extends React.Component<Props, State> {
       <ContextMenu
         key={value}
         ref={this.onContextMenuRef}
-        config={config}
+        menu={menu}
         visible={showMenu}
         searchable={editable !== false}
         searchString={value}
@@ -163,5 +161,3 @@ class Input extends React.Component<Props, State> {
   }
 
 }
-
-export default withEditorContext(Input)

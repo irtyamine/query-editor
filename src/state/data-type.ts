@@ -1,1 +1,8 @@
-export type DataType = 'operator' | 'keyword' | 'variable' | 'field' | 'string' | 'number' | 'boolean'
+export enum DataType {
+  Operator = 'operator',
+  Keyword = 'keyword',
+  Variable = 'variable',
+  String = 'string',
+  Number = 'number',
+  Boolean = 'boolean',
+}

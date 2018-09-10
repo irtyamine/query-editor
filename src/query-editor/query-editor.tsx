@@ -5,37 +5,33 @@ import { EditorConfig } from '../state/editor-config'
 
 import { EditorContextProvider } from '../editor-context/editor-context'
 import Editor from '../editor/editor'
-import { Menu } from '../state/menu'
 
 export class QueryEditor extends React.PureComponent<EditorConfig, void> {
 
   render() {
 
-    const menu: Menu = {
-      searchable: true,
-      items: [
-        { text: 'Arithmetic', type: 'number', group: 'expression' },
-        { text: 'Binary', type: 'boolean', group: 'expression' },
-        { text: 'country', type: 'string', group: 'variable' },
-        { text: 'employeeId', type: 'number', group: 'variable' },
-        { text: 'userId', type: 'number', group: 'variable' },
-        { text: 'userName', type: 'string', group: 'variable' },
-        { text: '=', type: 'operator', group: 'binary operator' },
-        { text: '!=', type: 'operator', group: 'binary operator' },
-        { text: '>=', type: 'operator', group: 'binary operator' },
-        { text: '<=', type: 'operator', group: 'binary operator' },
-        { text: '>', type: 'operator', group: 'binary operator' },
-        { text: '<', type: 'operator', group: 'binary operator' },
-        { text: 'IS NULL', type: 'operator', group: 'binary operator' },
-        { text: 'IS NOT NULL', type: 'operator', group: 'binary operator' },
-      ],
-    }
+    // const menu: Menu = {
+    //   searchable: true,
+    //   items: [
+    //     { text: 'Arithmetic', type: DataType.Number, group: 'expression' },
+    //     { text: 'Binary', type: DataType.Boolean, group: 'expression' },
+    //     { text: 'country', type: DataType.String, group: 'variable' },
+    //     { text: 'employeeId', type: DataType.Number, group: 'variable' },
+    //     { text: 'userId', type: DataType.Number, group: 'variable' },
+    //     { text: 'userName', type: DataType.String, group: 'variable' },
+    //     { text: '=', type: DataType.Operator, group: 'binary operator' },
+    //     { text: '!=', type: DataType.Operator, group: 'binary operator' },
+    //     { text: '>=', type: DataType.Operator, group: 'binary operator' },
+    //     { text: '<=', type: DataType.Operator, group: 'binary operator' },
+    //     { text: '>', type: DataType.Operator, group: 'binary operator' },
+    //     { text: '<', type: DataType.Operator, group: 'binary operator' },
+    //     { text: 'IS NULL', type: DataType.Operator, group: 'binary operator' },
+    //     { text: 'IS NOT NULL', type: DataType.Operator, group: 'binary operator' },
+    //   ],
+    // }
 
-    const config = {
-      ...this.props,
-      menu,
-    }
-    return <EditorContextProvider {...config}>
+    console.log('config!', this.props)
+    return <EditorContextProvider {...this.props}>
       <Editor />
     </EditorContextProvider>
   }

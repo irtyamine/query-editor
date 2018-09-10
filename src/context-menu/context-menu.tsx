@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { DataType } from '../state/data-type'
-import { EditorConfig } from '../state/editor-config'
 import { GroupedItem, Menu, MenuItem } from '../state/menu'
 import { ContextMenuItem } from './context-menu-item'
 import './context-menu.css'
@@ -9,7 +8,6 @@ interface Props {
   visible?: boolean
   searchable?: boolean
   menu?: Menu
-  config?: EditorConfig
   searchString?: string
   includeTypes?: DataType[] | Function
   excludeTypes?: DataType[] | Function
@@ -105,8 +103,7 @@ export class ContextMenu extends React.Component<Props, State> {
     return groupedItems
   }
 
-  processProps = ({ config }: Props) => {
-    const { menu } = (config || {}) as EditorConfig
+  processProps = ({ menu }: Props) => {
 
     const filteredItems: MenuItem[] = (menu && menu.items || [])
       .filter(this.filterByAllowedTypes)

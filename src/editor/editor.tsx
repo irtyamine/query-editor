@@ -4,12 +4,9 @@ import '../theme/github/index.less'
 import './editor.less'
 
 import { withEditorContext } from '../editor-context/editor-context'
-import Enclosure from '../enclosure/enclosure'
-import Input from '../input/input'
-import Keyword from '../keyword/keyword'
+import { ExpressionView } from '../expressions/expression-view'
 import { EditorConfig } from '../state/editor-config'
-import String from '../string/string'
-import Variable from '../variable/variable'
+import { Expression } from '../state/expression'
 
 export interface Props {
   config: EditorConfig
@@ -21,8 +18,13 @@ export interface State {
 class Editor extends React.PureComponent<Props, State> {
 
   render() {
+    const { config } = this.props
+    const { expressions } = (config.grammar || {} as any)
+
+    console.log('expressions', expressions)
+
     return <div className='qe-editor editor editor-colors'>
-      <Enclosure>
+      {/* <Enclosure>
         <Variable>
           <Input placeholder='Variable' onChange={console.log} />
         </Variable>
@@ -35,8 +37,16 @@ class Editor extends React.PureComponent<Props, State> {
           includeGroups={['binary operator']}
         />
         <String placeholder='Value' />
-      </Enclosure>
+      </Enclosure> */}
+      {(expressions || []).map(this.renderExpression)}
     </div>
+  }
+
+  renderExpression(expression: Expression, index: number): any {
+    return <ExpressionView
+      key={index}
+      expression={expression}
+    />
   }
 }
 
